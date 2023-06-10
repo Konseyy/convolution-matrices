@@ -1,3 +1,4 @@
+Uzdevums 10a
 Programma izveidota valodā Rust Repozitorija pieejama https://github.com/Konseyy/convolution-matrices
 
 Atverot .exe failu, jāievada relatīvs path uz bildi, ko vēlas mainīt, repozitorijā pievienoju arī testēšanas nolūkos bildi test.png, attiecīgi atverot programmu, pieņemot ka bilde atrodas vienā folderī ar programmu tās vietu var norādīt vienkārši kā "test.gif"
