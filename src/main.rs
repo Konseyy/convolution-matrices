@@ -1,16 +1,9 @@
-use image::{DynamicImage, GenericImageView, Rgba};
+use image::{DynamicImage, GenericImageView};
 use ndarray::arr2;
 use std::fs;
 use std::io::{stdin, stdout, Write};
 use std::path::Path;
 
-struct Point {
-    x: u32,
-    y: u32,
-    r: u8,
-    g: u8,
-    b: u8,
-}
 fn process_image(input_path: &str) -> Option<(u32, u32, DynamicImage)> {
     let img = image::open(&Path::new(input_path));
     if img.is_err() {
@@ -18,28 +11,10 @@ fn process_image(input_path: &str) -> Option<(u32, u32, DynamicImage)> {
         return None;
     }
 
-    let mut points: Vec<Point> = Vec::new();
     let width = img.as_ref().unwrap().width();
     let height = img.as_ref().unwrap().height();
 
     return Some((width, height, img.as_ref().unwrap().clone()));
-}
-
-fn get_neighbor_coordinates(x: u32, y: u32, width: u32, height: u32) -> Vec<(u32, u32)> {
-    let mut neighbors: Vec<(u32, u32)> = Vec::new();
-    if x > 0 {
-        neighbors.push((x - 1, y));
-    }
-    if x < width - 1 {
-        neighbors.push((x + 1, y));
-    }
-    if y > 0 {
-        neighbors.push((x, y - 1));
-    }
-    if y < height - 1 {
-        neighbors.push((x, y + 1));
-    }
-    return neighbors;
 }
 
 fn main() {
